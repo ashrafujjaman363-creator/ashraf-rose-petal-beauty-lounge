@@ -4,8 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ashraf Rose Petal Beauty Lounge | Luxury Salon & Makeup Studio</title>
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS with Automatic Fallback for Edge / AdBlockers -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (!window.tailwind) {
+        var fallbackCss = document.createElement('link');
+        fallbackCss.rel = 'stylesheet';
+        fallbackCss.href = 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+        document.head.appendChild(fallbackCss);
+      }
+    });
+  </script>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -793,4 +803,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
