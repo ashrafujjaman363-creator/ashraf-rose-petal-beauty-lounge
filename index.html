@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashraf Rose Petal Beauty Lounge | Luxury Salon & Makeup Studio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Custom Typography & Theme Tokens */
+    :root {
+      --primary-lavender: #F3E8FF;
+      --soft-lavender: #FAF5FF;
+      --deep-purple: #581C87;
+      --royal-purple: #7E22CE;
+      --rose-accent: #BE185D;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1F1235;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-serif-luxury {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Hero Background with fallback */
+    .hero-bg {
+      background-image: linear-gradient(rgba(31, 18, 53, 0.72), rgba(88, 28, 135, 0.65)),
+        url('pexels-artbovich-7750124.jpg'),
+        url('https://images.pexels.com/photos/7750124/pexels-photo-7750124.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Typewriter Cursor Animation */
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      background-color: #F5D0FE;
+      animation: blink 0.8s infinite;
+      margin-left: 3px;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animated Experience Badge Inside Trainer Box */
+    .exp-badge {
+      opacity: 0;
+      transform: translate(-50%, 18px) scale(0.9);
+      transition: all 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+    }
+
+    .trainer-card.visible .exp-badge {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    /* Luxury Animated Section Headings */
+    @keyframes headingFloatGlow {
+      0%, 100% {
+        color: #3B0764;
+        text-shadow: 0 2px 12px rgba(126, 34, 206, 0.12);
+      }
+      50% {
+        color: #7E22CE;
+        text-shadow: 0 4px 20px rgba(190, 24, 93, 0.25);
+      }
+    }
+
+    .animated-heading {
+      color: #3B0764;
+      animation: headingFloatGlow 3.5s ease-in-out infinite;
+    }
+
+    .animated-heading .word-span {
+      display: inline-block;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  color 0.5s ease;
+    }
+
+    .animated-heading.heading-bounce .word-span {
+      animation: wordWave 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Luxury Animated Section Headings (Typewriter Ready) */
+    .animated-heading {
+      color: #3B0764;
+      min-height: 1.25em;
+    }
+
+    .heading-cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: #BE185D;
+      animation: blink 0.75s infinite;
+      margin-left: 4px;
+      vertical-align: baseline;
+    }
+  </style>
+</head>
+<body class="bg-white antialiased selection:bg-purple-200 selection:text-purple-900">
+
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-purple-200/60 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-purple-700 to-pink-600 text-white flex items-center justify-center text-xl shadow-md shadow-purple-300 group-hover:scale-105 transition-transform">
+          🌸
+        </div>
+        <div>
+          <span class="block font-serif-luxury text-xl sm:text-2xl font-bold text-purple-950 tracking-wide leading-none">
+            ASHRAF ROSE PETAL
+          </span>
+          <span class="block text-[10px] sm:text-xs uppercase tracking-[0.22em] text-pink-700 font-semibold mt-0.5">
+            Beauty Lounge
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-800">
+        <a href="#home" class="hover:text-purple-700 transition-colors">Home</a>
+        <a href="#about" class="hover:text-purple-700 transition-colors">About Us</a>
+        <a href="#services" class="hover:text-purple-700 transition-colors">Services</a>
+        <a href="#trainers" class="hover:text-purple-700 transition-colors">Our Experts</a>
+        <a href="#booking" class="hover:text-purple-700 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action & Mobile Menu Button -->
+      <div class="flex items-center gap-3">
+        <a href="#booking" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-900 to-purple-700 text-white text-sm font-semibold shadow-md shadow-purple-300 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+          Book Appointment
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-xl text-purple-900 hover:bg-purple-100 focus:outline-none" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-purple-100 px-6 py-4 space-y-3 shadow-lg">
+      <a href="#home" class="block py-1.5 text-gray-800 font-medium hover:text-purple-700">Home</a>
+      <a href="#about" class="block py-1.5 text-gray-800 font-medium hover:text-purple-700">About Us</a>
+      <a href="#services" class="block py-1.5 text-gray-800 font-medium hover:text-purple-700">Services</a>
+      <a href="#trainers" class="block py-1.5 text-gray-800 font-medium hover:text-purple-700">Our Experts</a>
+      <a href="#booking" class="block py-2 text-center rounded-xl bg-purple-800 text-white font-semibold">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- Hero Section with Typewriter Effect -->
+  <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-28 pb-20 relative">
+    <div class="max-w-4xl mx-auto reveal">
+      <span class="inline-block px-5 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-purple-100 text-xs sm:text-sm uppercase tracking-[0.2em] font-medium mb-6">
+        🌸 Beauty • Elegance • Confidence
+      </span>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
+        Ashraf Rose Petal Beauty Lounge
+      </h1>
+
+      <!-- Typewriter Text -->
+      <div class="text-lg sm:text-2xl font-medium text-fuchsia-200 min-h-[38px] mb-6">
+        <span id="typewriterText"></span><span class="cursor-blink">|</span>
+      </div>
+
+      <p class="text-base sm:text-lg text-purple-100/90 max-w-2xl mx-auto mb-9 leading-relaxed">
+        Step into a serene lavender sanctuary in Chattogram offering luxury bridal artistry, clinical glow facials, signature hair transformations, and certified beauty training.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-700 text-white font-semibold text-base shadow-xl shadow-purple-950/40 hover:-translate-y-1 transition-all">
+          Book Your Appointment
+        </a>
+        <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/15 backdrop-blur-md border border-white/60 text-white font-semibold text-base hover:bg-white hover:text-purple-950 transition-all">
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-20 sm:py-24 bg-purple-50/70 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <div class="rounded-3xl overflow-hidden border-8 border-white shadow-xl shadow-purple-200/60">
+          <img
+            src="pexels-artbovich-7750124.jpg"
+            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/7750124/pexels-photo-7750124.jpeg?auto=compress&cs=tinysrgb&w=1000';"
+            alt="Ashraf Rose Petal Beauty Lounge Interior"
+            class="w-full h-[360px] sm:h-[440px] object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-pink-700 text-xs font-bold uppercase tracking-widest mb-3">
+          About Our Lounge
+        </span>
+        <h2 class="animated-heading text-3xl sm:text-5xl font-bold leading-tight mb-5">
+          Where Luxury Meets Timeless Beauty Care
+        </h2>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          Located at <strong>K.B. Abdus Sattar Road, Rahmatganj, Kotwali, Chattogram</strong>, <span class="text-purple-900 font-semibold">Ashraf Rose Petal Beauty Lounge</span> is designed for women who appreciate refined elegance, hygiene, and personalized beauty care.
+        </p>
+        <p class="text-gray-600 mb-7 leading-relaxed">
+          From breathtaking bridal and holud makeovers to rejuvenating skincare rituals and professional beauty training courses, our certified international trainers ensure every detail is crafted to perfection.
+        </p>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-2xl border-l-4 border-purple-700 shadow-sm">
+            <h4 class="font-bold text-purple-950 text-base">100% Hygienic</h4>
+            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Sanitized luxury stations</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-l-4 border-pink-600 shadow-sm">
+            <h4 class="font-bold text-purple-950 text-base">Certified Experts</h4>
+            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Seasoned beauty trainers</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-l-4 border-pink-600 shadow-sm">
+            <h4 class="font-bold text-purple-950 text-base">Authentic Brands</h4>
+            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Skin-safe global products</p>
+          </div>
+          <div class="bg-white p-4 rounded-2xl border-l-4 border-purple-700 shadow-sm">
+            <h4 class="font-bold text-purple-950 text-base">Bridal Packages</h4>
+            <p class="text-xs sm:text-sm text-gray-500 mt-0.5">Tailored wedding makeovers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (6 Cards with User's Collected Photos & Prices) -->
+  <section id="services" class="py-20 sm:py-24 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-pink-700 text-xs font-bold uppercase tracking-widest mb-3">
+          Our Signature Menu
+        </span>
+        <h2 class="animated-heading text-3xl sm:text-5xl font-bold mb-4">
+          Luxury Beauty & Makeover Services
+        </h2>
+        <p class="text-gray-600">
+          Indulge in our curated beauty treatments and glamorous makeovers tailored for your special celebrations and everyday glow.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 1. Bridal Makeup -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-skgphotography-29133472.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/29133472/pexels-photo-29133472.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Bridal Makeup"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳5,000
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Bridal Makeup</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Flawless HD bridal artistry with traditional jewelry & dupatta setting designed to keep you radiant throughout your wedding day.
+              </p>
+            </div>
+            <button onclick="chooseService('Bridal Makeup - ৳5,000')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Party Makeup -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-1054048-12725977.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/12725977/pexels-photo-12725977.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Party Makeup"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳1,500
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Party Makeup</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Glamorous evening or soft dewy party look customized to complement your outfit, jewelry, and special celebration.
+              </p>
+            </div>
+            <button onclick="chooseService('Party Makeup - ৳1,500')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Facial & Skincare -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-denys-12115040.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/12115040/pexels-photo-12115040.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Facial & Skincare"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳800
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Facial & Skincare</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Deep-cleansing, hydrating, and brightening facial therapy tailored to rejuvenate tired skin and restore natural glow.
+              </p>
+            </div>
+            <button onclick="chooseService('Facial - ৳800')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Hair Cut -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-thefullonmonet-28994396.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/28994396/pexels-photo-28994396.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Hair Cut"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳500
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Hair Cut & Styling</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Precision layers, modern trims, and flattering face-framing haircuts finished with a bouncy salon blow-dry.
+              </p>
+            </div>
+            <button onclick="chooseService('Hair Cut - ৳500')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Hair Treatment -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-goksun-baris-gokalp-2158208031-35225395.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/35225395/pexels-photo-35225395.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Hair Treatment"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳1,200
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Hair Treatment</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Nourishing keratin hair spa, scalp revitalization, and deep conditioning repair for silky, frizz-free hair.
+              </p>
+            </div>
+            <button onclick="chooseService('Hair Treatment - ৳1,200')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. Manicure -->
+        <div class="reveal group bg-white rounded-3xl overflow-hidden border border-purple-100 shadow-md hover:shadow-xl hover:shadow-purple-200/60 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden bg-purple-100">
+            <img
+              src="pexels-gustavo-fring-7446914.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/7446914/pexels-photo-7446914.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Manicure & Nail Art"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            <span class="absolute top-4 right-4 px-4 py-1.5 rounded-full bg-purple-950/90 text-white font-bold text-sm backdrop-blur-sm shadow">
+              ৳400
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-bold text-purple-950 mb-2">Manicure & Nail Art</h3>
+              <p class="text-sm text-gray-600 mb-6">
+                Soothing hand spa, cuticle refinement, nail shaping, and glossy gel or artistic nail designs for elegant hands.
+              </p>
+            </div>
+            <button onclick="chooseService('Manicure - ৳400')" class="w-full py-3 rounded-xl bg-purple-100 text-purple-950 font-semibold text-sm hover:bg-gradient-to-r hover:from-purple-900 hover:to-purple-700 hover:text-white transition-all">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers / Beauty Experts Section (Box Cards + Foreign Names + Animated Experience) -->
+  <section id="trainers" class="py-20 sm:py-24 bg-gradient-to-b from-purple-50 to-fuchsia-50/60 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white text-pink-700 text-xs font-bold uppercase tracking-widest mb-3 shadow-sm">
+          Meet Our Trainers
+        </span>
+        <h2 class="animated-heading text-3xl sm:text-5xl font-bold mb-4">
+          Certified Beauty Trainers & Experts
+        </h2>
+        <p class="text-gray-600">
+          Get styled or master professional beauty artistry under the guidance of our internationally trained specialists.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <!-- Trainer Box 1 -->
+        <div class="trainer-card reveal bg-white rounded-3xl p-4 border-2 border-purple-200/80 shadow-md hover:shadow-xl hover:border-purple-600 hover:-translate-y-2 transition-all duration-300 text-center">
+          <div class="relative h-64 rounded-2xl overflow-hidden border-2 border-purple-100 mb-4 bg-purple-100">
+            <img
+              src="pexels-sandra-elizabeth-rivera-ayauca-3003710-22605222.jpg"
+              onerror="if(this.dataset.tried!=='1'){this.dataset.tried='1';this.src='https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800';}else{this.onerror=null;this.src='https://placehold.co/600x800/F3E8FF/581C87?text=Elena+Rodriguez';}"
+              alt="Elena Rodriguez"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+            <span class="exp-badge absolute bottom-3 left-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-800 text-white text-xs font-bold whitespace-nowrap shadow-lg">
+              ✨ 9+ Years Expert
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-purple-950">Elena Rodriguez</h3>
+          <p class="text-xs font-bold uppercase tracking-wider text-pink-700 mt-1 mb-2.5">
+            Senior Bridal & Holud Makeup Trainer
+          </p>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Master educator in luxury bridal makeovers, airbrush HD skin finish, and professional makeup courses.
+          </p>
+        </div>
+
+        <!-- Trainer Box 2 -->
+        <div class="trainer-card reveal bg-white rounded-3xl p-4 border-2 border-purple-200/80 shadow-md hover:shadow-xl hover:border-purple-600 hover:-translate-y-2 transition-all duration-300 text-center">
+          <div class="relative h-64 rounded-2xl overflow-hidden border-2 border-purple-100 mb-4 bg-purple-100">
+            <img
+              src="pexels-kampus-8834021.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/8834021/pexels-photo-8834021.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Clara Vance"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+            <span class="exp-badge absolute bottom-3 left-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-800 text-white text-xs font-bold whitespace-nowrap shadow-lg">
+              ✨ 7+ Years Expert
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-purple-950">Clara Vance</h3>
+          <p class="text-xs font-bold uppercase tracking-wider text-pink-700 mt-1 mb-2.5">
+            Hair Styling & Hair Treatment Specialist
+          </p>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Specialist in precision haircuts, bridal updos, keratin hair spa, and restorative scalp treatments.
+          </p>
+        </div>
+
+        <!-- Trainer Box 3 -->
+        <div class="trainer-card reveal bg-white rounded-3xl p-4 border-2 border-purple-200/80 shadow-md hover:shadow-xl hover:border-purple-600 hover:-translate-y-2 transition-all duration-300 text-center">
+          <div class="relative h-64 rounded-2xl overflow-hidden border-2 border-purple-100 mb-4 bg-purple-100">
+            <img
+              src="pexels-wesleydavi-16122139.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/16122139/pexels-photo-16122139.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Sophia Laurent"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+            <span class="exp-badge absolute bottom-3 left-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-800 text-white text-xs font-bold whitespace-nowrap shadow-lg">
+              ✨ 8+ Years Expert
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-purple-950">Sophia Laurent</h3>
+          <p class="text-xs font-bold uppercase tracking-wider text-pink-700 mt-1 mb-2.5">
+            Skincare & Facial Expert
+          </p>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Certified aesthetician renowned for clinical glow facials, skin hydration rituals, and dermal care training.
+          </p>
+        </div>
+
+        <!-- Trainer Box 4 -->
+        <div class="trainer-card reveal bg-white rounded-3xl p-4 border-2 border-purple-200/80 shadow-md hover:shadow-xl hover:border-purple-600 hover:-translate-y-2 transition-all duration-300 text-center">
+          <div class="relative h-64 rounded-2xl overflow-hidden border-2 border-purple-100 mb-4 bg-purple-100">
+            <img
+              src="pexels-ayange-robert-795023958-19108597.jpg"
+              onerror="this.onerror=null;this.src='https://images.pexels.com/photos/19108597/pexels-photo-19108597.jpeg?auto=compress&cs=tinysrgb&w=800';"
+              alt="Maya Sterling"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+            <span class="exp-badge absolute bottom-3 left-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-800 text-white text-xs font-bold whitespace-nowrap shadow-lg">
+              ✨ 6+ Years Expert
+            </span>
+          </div>
+          <h3 class="text-2xl font-bold text-purple-950">Maya Sterling</h3>
+          <p class="text-xs font-bold uppercase tracking-wider text-pink-700 mt-1 mb-2.5">
+            Nail Art & Beauty Trainer
+          </p>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Creative nail artist and beauty instructor specializing in luxury manicures, gel extensions, and nail art.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking & Contact Section -->
+  <section id="booking" class="py-20 sm:py-24 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-pink-700 text-xs font-bold uppercase tracking-widest mb-3">
+          Reserve Your Visit
+        </span>
+        <h2 class="animated-heading text-3xl sm:text-5xl font-bold mb-4">
+          Book an Appointment
+        </h2>
+        <p class="text-gray-600">
+          Select your preferred service and date below to send an instant appointment request directly to our WhatsApp.
+        </p>
+      </div>
+
+      <div class="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 bg-purple-50/80 p-6 sm:p-10 rounded-3xl border border-purple-200/70 shadow-lg">
+        <!-- Appointment Form -->
+        <form id="bookingForm" class="lg:col-span-7 space-y-4">
+          <h3 class="text-2xl sm:text-3xl font-bold text-purple-950">Appointment Details</h3>
+          <p class="text-sm text-gray-600 pb-2">Complete the form below and confirm directly via WhatsApp.</p>
+
+          <div>
+            <label for="clientName" class="block text-xs font-bold uppercase tracking-wider text-purple-950 mb-1.5">Full Name</label>
+            <input type="text" id="clientName" required placeholder="Enter your full name" class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 focus:border-purple-700 focus:outline-none text-sm" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="clientPhone" class="block text-xs font-bold uppercase tracking-wider text-purple-950 mb-1.5">Phone / WhatsApp</label>
+              <input type="tel" id="clientPhone" required placeholder="e.g., 01XXXXXXXXX" class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 focus:border-purple-700 focus:outline-none text-sm" />
+            </div>
+            <div>
+              <label for="bookingDate" class="block text-xs font-bold uppercase tracking-wider text-purple-950 mb-1.5">Preferred Date</label>
+              <input type="date" id="bookingDate" required class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 focus:border-purple-700 focus:outline-none text-sm" />
+            </div>
+          </div>
+
+          <div>
+            <label for="serviceSelect" class="block text-xs font-bold uppercase tracking-wider text-purple-950 mb-1.5">Choose Service or Training</label>
+            <select id="serviceSelect" class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 focus:border-purple-700 focus:outline-none text-sm">
+              <option value="Bridal Makeup - ৳5,000">Bridal Makeup — ৳5,000</option>
+              <option value="Party Makeup - ৳1,500">Party Makeup — ৳1,500</option>
+              <option value="Facial - ৳800">Facial & Skincare — ৳800</option>
+              <option value="Hair Cut - ৳500">Hair Cut & Styling — ৳500</option>
+              <option value="Hair Treatment - ৳1,200">Hair Treatment — ৳1,200</option>
+              <option value="Manicure - ৳400">Manicure & Nail Art — ৳400</option>
+              <option value="Beauty Training Course Inquiry">Beauty & Makeup Training Course Inquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="clientNote" class="block text-xs font-bold uppercase tracking-wider text-purple-950 mb-1.5">Special Note (Optional)</label>
+            <textarea id="clientNote" rows="2" placeholder="Preferred time slot or custom request..." class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 focus:border-purple-700 focus:outline-none text-sm"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-900 to-purple-700 text-white font-semibold text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            Send Booking via WhatsApp 🌸
+          </button>
+
+          <!-- Feedback Message Box -->
+          <div id="bookingStatus" class="hidden p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium text-center">
+            Redirecting to WhatsApp with your appointment details...
+          </div>
+        </form>
+
+        <!-- Contact Details Card -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-purple-950 via-purple-900 to-fuchsia-950 text-white p-7 sm:p-8 rounded-2xl flex flex-col justify-between shadow-xl">
+          <div>
+            <h3 class="text-2xl sm:text-3xl font-bold mb-2">Contact & Location</h3>
+            <p class="text-purple-200 text-sm mb-6">
+              Visit our beauty lounge in Chattogram or reach out directly for bridal consultations and course admissions.
+            </p>
+
+            <ul class="space-y-5 text-sm">
+              <li class="flex items-start gap-3.5">
+                <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0 text-base">📍</span>
+                <div>
+                  <strong class="block text-purple-200 text-xs uppercase tracking-wider">Address</strong>
+                  <span>K.B. Abdus Sattar Road, Rahmatganj, Kotwali, Chattogram, Bangladesh</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3.5">
+                <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0 text-base">📞</span>
+                <div>
+                  <strong class="block text-purple-200 text-xs uppercase tracking-wider">Phone & WhatsApp</strong>
+                  <a href="tel:+8801987819000" class="hover:underline">+880 1987819000</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-3.5">
+                <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0 text-base">✉️</span>
+                <div>
+                  <strong class="block text-purple-200 text-xs uppercase tracking-wider">Email</strong>
+                  <a href="mailto:ashrafujjaman363@gmail.com" class="hover:underline break-all">ashrafujjaman363@gmail.com</a>
+                </div>
+              </li>
+              <li class="flex items-start gap-3.5">
+                <span class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center shrink-0 text-base">⏰</span>
+                <div>
+                  <strong class="block text-purple-200 text-xs uppercase tracking-wider">Opening Hours</strong>
+                  <span>Sat – Thu: 10:00 AM – 8:30 PM<br/>Friday: 3:00 PM – 8:30 PM</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/8801987819000?text=Hello%20Ashraf%20Rose%20Petal%20Beauty%20Lounge!%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer" class="mt-8 w-full py-3.5 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm text-center shadow-lg transition-all flex items-center justify-center gap-2">
+            <span>💬 Chat on WhatsApp Now</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-purple-950 text-purple-200 py-8 px-4 text-center text-sm border-t border-purple-900">
+    <p>© 2026 <span class="text-pink-400 font-semibold">Ashraf Rose Petal Beauty Lounge</span>. All Rights Reserved.</p>
+    <p class="text-xs text-purple-300/80 mt-1">K.B. Abdus Sattar Road, Rahmatganj, Kotwali, Chattogram, Bangladesh</p>
+  </footer>
+
+  <!-- Interactive JavaScript: Typewriter, Scroll Reveal, Booking -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Typewriter Effect in Hero Section
+    const typewriterPhrases = [
+      "Luxury Bridal & Holud Makeovers...",
+      "Rejuvenating Glow Facials & Skincare...",
+      "Signature Hair Styling & Keratin Spa...",
+      "Certified International Beauty Training..."
+    ];
+    let pIndex = 0;
+    let cIndex = 0;
+    let deleting = false;
+    const typeTarget = document.getElementById('typewriterText');
+
+    function runTypewriter() {
+      const current = typewriterPhrases[pIndex];
+      if (deleting) {
+        typeTarget.textContent = current.substring(0, cIndex - 1);
+        cIndex--;
+      } else {
+        typeTarget.textContent = current.substring(0, cIndex + 1);
+        cIndex++;
+      }
+
+      // Faster typing and deleting speed
+      let delay = deleting ? 20 : 38;
+      if (!deleting && cIndex === current.length) {
+        delay = 1100;
+        deleting = true;
+      } else if (deleting && cIndex === 0) {
+        deleting = false;
+        pIndex = (pIndex + 1) % typewriterPhrases.length;
+        delay = 250;
+      }
+
+      setTimeout(runTypewriter, delay);
+    }
+    runTypewriter();
+
+    // Scroll Reveal Observer for Sections & Cards
+    const revealItems = document.querySelectorAll('.reveal');
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => scrollObserver.observe(item));
+
+    // Typewriter Effect for Section Headings on Scroll
+    const animatedHeadings = document.querySelectorAll('.animated-heading');
+    animatedHeadings.forEach((heading) => {
+      const fullText = heading.textContent.trim().replace(/\s+/g, ' ');
+      heading.setAttribute('data-full-text', fullText);
+      heading.innerHTML = `<span class="heading-typed-text">${fullText}</span><span class="heading-cursor">|</span>`;
+    });
+
+    function startHeadingTypewriter(heading) {
+      if (heading.dataset.typing === 'true') return;
+      heading.dataset.typing = 'true';
+
+      const fullText = heading.getAttribute('data-full-text') || '';
+      const textSpan = heading.querySelector('.heading-typed-text');
+      const cursorSpan = heading.querySelector('.heading-cursor');
+      let index = 0;
+
+      textSpan.textContent = '';
+      if (cursorSpan) cursorSpan.style.display = 'inline-block';
+
+      function typeChar() {
+        if (index < fullText.length) {
+          textSpan.textContent += fullText.charAt(index);
+          index++;
+          setTimeout(typeChar, 32);
+        } else {
+          heading.dataset.typing = 'false';
+        }
+      }
+      typeChar();
+    }
+
+    const headingObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startHeadingTypewriter(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    animatedHeadings.forEach((h) => headingObserver.observe(h));
+
+    // Pre-select Service & Scroll to Booking Form
+    function chooseService(serviceValue) {
+      const selectEl = document.getElementById('serviceSelect');
+      selectEl.value = serviceValue;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // WhatsApp Booking Form Submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const service = document.getElementById('serviceSelect').value;
+      const date = document.getElementById('bookingDate').value;
+      const note = document.getElementById('clientNote').value.trim();
+
+      const statusBox = document.getElementById('bookingStatus');
+      statusBox.classList.remove('hidden');
+
+      const text =
+        `Hello Ashraf Rose Petal Beauty Lounge! 🌸%0A%0A` +
+        `*New Appointment Request:*%0A` +
+        `• *Name:* ${encodeURIComponent(name)}%0A` +
+        `• *Phone:* ${encodeURIComponent(phone)}%0A` +
+        `• *Service:* ${encodeURIComponent(service)}%0A` +
+        `• *Date:* ${encodeURIComponent(date)}%0A` +
+        (note ? `• *Note:* ${encodeURIComponent(note)}%0A` : ``) +
+        `%0APlease confirm my booking. Thank you!`;
+
+      window.open(`https://wa.me/8801987819000?text=${text}`, '_blank');
+    });
+  </script>
+</body>
+</html> 
